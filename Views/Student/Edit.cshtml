@@ -1,0 +1,72 @@
+﻿@model StudentManagement.Models.Student
+
+@{
+    ViewData["Title"] = "Sửa sinh viên";
+}
+
+<h2 class="mb-4">Sửa thông tin sinh viên</h2>
+
+<form asp-action="Edit"
+      asp-route-id="@Model.StudentId"
+      method="post">
+
+    <input type="hidden" asp-for="StudentId" />
+
+    <div asp-validation-summary="All"
+         class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="StudentCode"
+               class="form-label"></label>
+
+        <input asp-for="StudentCode"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FullName"
+               class="form-label"></label>
+
+        <input asp-for="FullName"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DateOfBirth"
+               class="form-label"></label>
+
+        <input asp-for="DateOfBirth"
+               type="date"
+               asp-format="{0:yyyy-MM-dd}"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email"
+               class="form-label"></label>
+
+        <input asp-for="Email"
+               class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Phone"
+               class="form-label"></label>
+
+        <input asp-for="Phone"
+               class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Cập nhật
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Quay lại
+    </a>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

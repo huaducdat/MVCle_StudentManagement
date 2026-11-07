@@ -1,0 +1,56 @@
+﻿@model StudentManagement.Models.Student
+
+@{
+    ViewData["Title"] = "Xóa sinh viên";
+}
+
+<h2 class="mb-4">Xóa sinh viên</h2>
+
+<div class="alert alert-warning">
+    Bạn có chắc muốn xóa sinh viên này không?
+</div>
+
+<div class="card mb-3">
+    <div class="card-body">
+
+        <p>
+            <b>Mã sinh viên:</b>
+            @Model.StudentCode
+        </p>
+
+        <p>
+            <b>Họ tên:</b>
+            @Model.FullName
+        </p>
+
+        <p>
+            <b>Ngày sinh:</b>
+            @Model.DateOfBirth?.ToString("dd/MM/yyyy")
+        </p>
+
+        <p>
+            <b>Email:</b>
+            @Model.Email
+        </p>
+
+        <p>
+            <b>Số điện thoại:</b>
+            @Model.Phone
+        </p>
+
+    </div>
+</div>
+
+<form asp-action="Delete"
+      asp-route-id="@Model.StudentId"
+      method="post">
+
+    <button type="submit" class="btn btn-danger">
+        Xác nhận xóa
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Hủy
+    </a>
+
+</form>
